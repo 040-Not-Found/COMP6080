@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            width: 419px;
+            height: 3195px;
+            background-color:rgba(248,248,248,255);
+        }
+        body {
+            font-family:Arial;
+            text-align: center; 
+            margin:0 auto;
+            width: 90%;
+        }
+        #heading {
+            font-size: 28pt;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin: 0;
+            line-height:45px;
+        }
+        .containerF {
+            display: grid;
+            grid-template-columns: auto;
+            height: 10%;
+        }
+        .frame {
+            height: 85%;
+            width:auto;
+        }
+        figure {
+            padding-bottom: 120px;
+        }
+        figure:hover {
+            opacity: .7
+        }
+        p[id = "figText"] {
+            font-size: 14pt;
+            margin: 0;
+        }
+        #containerSpacing {
+            padding: 10px;
+        }
+        p[id = "adText"] {
+            text-align: middle;
+            font-size: 22pt;
+            padding-inline: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        p[id = "smallerAdText"] {
+            font-size: 17pt;
+        }
+        #adSpacing {
+            padding:25px;
+        }
+        #ad {
+            background-color: rgb(251,250,115);
+        }
+        p[id = "adHeading"] {
+            font-size: 40pt;
+            line-height: 0.7em;
+            margin: 0;
+            padding-top: 30px;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: rgba(142,66,255,255);
+            color: white;
+            padding: 3px;
+            border-radius: 5px;
+            font-size: smaller;
+        }
+        .highlight:hover {
+            opacity: .7
+        }
+        @media only screen and (min-width: 420px){
+            html {
+                width: 1894px;
+                height: 1470px;
+            }
+            body {
+                width: 58.5%;
+            }
+            #heading {
+                font-size: 35pt;
+                padding-top: 20px;
+                padding-bottom: 120px;
+                line-height:65px;
+                font-weight: bold;
+            }
+            .containerF{
+                display: grid;
+                grid-template-columns: auto auto auto;
+                height: 350px;
+            }
+            figure {
+                padding-bottom: 0px;
+            }
+            .frame {
+                height: 60%; 
+                width:auto;
+            }
+            .container {
+                display: grid;
+                grid-template-columns: 58% auto;
+                padding-top: 0px;
+                padding-left: 30px;
+            }
+            p[id = "figText"] {
+                font-size: 12pt;
+                margin: 0;
+            }
+            #containerSpacing {
+                padding: 80px
+            }
+            #adSpacing {
+                padding:60px;
+            }
+            p[id = "adHeading"] {
+                text-align: left;
+                padding-left: 40px;
+                padding-bottom: 20px;
+            }
+            p[id = "adText"] {
+
+                margin-top: 2px;
+                text-align: left;
+                font-size: 18pt;
+                font-weight: 100;
+                margin-bottom: 10px;
+            }
+            p[id = "smallerAdText"] {
+                text-align: left;
+                font-size: 17pt;
+                padding-left: 10px;
+            }
+        }
+    </style>
+    <body>
+        <div id="heading">
+            We're here to help you get more credit cards to buy more things
+        </div>
+        <div class="containerF">
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon1.svg" alt="no fee cards" style="width: 75%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        No fee cards
+                    </h2>
+                    <p id="figText">
+                        Say bye bye to card payment fees
+                    </p>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon2.svg" alt="pay however" style="width: 75%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        Pay however
+                    </h2>
+                    <p id="figText"></p>
+                        Pay with google pay or apple pay
+                    </p>
+                </figcaption>
+            </figure>
+            
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon3.svg" alt="10/10 interest rate" style="width: 75%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        10/10 interest rates
+                    </h2>
+                    <p id="figText">
+                        Nothing is more exciting given the economic climate
+                    </p>
+                </figcaption>
+            </figure>   
+        </div>
+
+        <div id="containerSpacing"></div>
+
+        <div class="containerF">
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon4.svg" alt="easy to use app" style="width: 50%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        Easy to use app
+                    </h2>
+                    <p id="figText">
+                        All of the financial information you need in one place
+                    </p>
+                </figcaption>
+            </figure>
+                
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon5.svg" alt="build on calender" style="width: 50%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        Build in calender
+                    </h2>
+                    <p id="figText">
+                        Built in calender will help you track your payments
+                    </p>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <div class="frame">
+                    <img src="./assets/q5_icon6.svg" alt="au call internet" style="width: 50%;height:auto">
+                </div>
+                <figcaption>
+                    <h2>
+                        AU call centres
+                    </h2>
+                    <p id="figText">
+                        Not that it makes a difference as you won't call anyway
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div id="adSpacing"></div>
+        
+        <div id="ad">
+            <p id="adHeading">
+                Get started now! &#128588
+            </p>
+            <div class="container">
+                <section>
+                    <p id="adText">
+                        Join now using our invit code
+                        <span class="highlight">
+                            UNSWROX
+                        </span>
+                        and <b>get $1.10</b> after your second purchase.
+                    </p>
+                    <p id="smallerAdText">
+                        Offer available for a limited time.
+                    </p>
+                </section>
+                <section style="padding-top: 20px;padding-bottom: 30px;">
+                    <img src="./assets/app-store.png" alt="app store" style="width: 200px;height:auto">
+                    <img src="./assets/google-play.png" alt="google play" style="width: 200px;height:auto">
+                </section>
+            </div>
+        </div>
+    </div>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: auto auto;
+            border: 1px solid black;
+        }
+        .box {
+            margin: 1px;
+            border: 1px solid black;
+        }
+        .textarea {
+            border: 1px solid black;
+        }
+    </style>
+    <form action="">
+        <div class="container">
+            <div class="box">
+                    <label for="streetName">
+                        Street Name
+                    </label>
+            </div>
+            <div class="box">
+                <input type="text" 
+                id="streetName" 
+                name="streetName"
+                onblur="validateStreet()"
+                >
+            </div>
+
+            <div class="box">
+                <label for="suburb">
+                    Suburb
+                </label>
+            </div>
+            <div class="box">
+                <input type="text"
+                    id="suburb" 
+                    name="suburb"
+                    onblur="validateSuburb()" 
+                >
+            </div>
+            <div class="box">
+                <label for="postcode">
+                    Postcode
+                </label>
+            </div>
+            <div class="box">
+                <input type="text"
+                    id="postcode" 
+                    name="postcode"
+                    onblur="validatePostcode()"
+                >
+            </div>
+            <div class="box">
+                <label for="DOB">
+                    Date of birth
+                </label>
+            </div>
+            <div class="box">
+                <input type="text" 
+                    id="DOB" 
+                    name="DOB"
+                    onblur="validateDOB()"
+                >
+            </div>
+
+            <div class="box">
+                <label for="buildingType">
+                    Building Type
+                </label>
+            </div>
+            <div class="box">
+                <select name="buildingType" id="buildingType">
+                    <option value="Apartment">
+                        Apartment
+                    </option>
+                    <option value="House">
+                        House
+                    </option>
+                </select>
+            </div>
+            <div class="box">
+                <label for="features">
+                    Features
+                </label>
+            </div>
+            <div class="box">
+                <input type="checkbox" 
+                    id="heating" 
+                    name="feature"
+                    value="heating"
+                > Heating
+                <br>
+            
+                <input type="checkbox" 
+                    id="air-conditioning" 
+                    name="feature"
+                    value="air conditioning"
+                > Air Conditioning
+                <br>
+            
+                <input type="checkbox" 
+                    id="pool" 
+                    name="feature"
+                    value="pool"
+                > Pool
+                <br>
+            
+                <input type="checkbox" 
+                    id="sandpit" 
+                    name="feature"
+                    value="sandpit"
+                > Sandpit
+                <br>
+
+                <input type="button" 
+                    name="select" 
+                    onClick="selectFeature(this)" 
+                    value="Select All"
+                >
+            </div>
+        </div>
+        <input 
+        type="reset" 
+        name="reset" 
+        id="reset"
+        value="Reset"
+        onclick="resetSelect()"
+        >
+    </form>
+    <br>
+    <div style="border: 1px solid black;">
+        <p id="summary"></p>
+    </div>
+
+    <script language="JavaScript">
+        let alerted = false;
+        const street = document.getElementById("streetName");
+        const suburb = document.getElementById("suburb");
+        const postcode = document.getElementById("postcode");
+        const dob = document.getElementById("DOB");
+
+        const building = document.getElementById("buildingType");
+        const features = document.querySelectorAll('input[type="checkbox"]');
+            
+        const summary = document.getElementById('summary');
+
+        function validateStreet() {
+            if (street.value.length < 3 || street.value.length > 50) {
+                if (!alerted) {
+                    alert("Please input a valid street name");
+                    alerted = true;
+                    street.focus();
+                } else {
+                    alerted = false;
+                }
+            } else {
+                alerted = false;
+            }
+        }
+
+        function validateSuburb() {
+            if (suburb.value.length < 3 || suburb.value.length > 50) {
+                if (!alerted) {
+                    alert("Please input a valid suburb");
+                    alerted = true;
+                    suburb.focus();
+                } else {
+                    alerted = false;
+                }
+            } else {
+                alerted = false;
+            }
+        }
+
+        function validatePostcode() {
+            if (!postcode.value.match(/^[0-9]{4}$/)) {
+                if (!alerted) {
+                    alert("Please input a valid postcode");
+                    alerted = true;
+                    postcode.focus();
+                } else {
+                    alerted = false;
+                }
+            } else {
+                alerted = false;
+            }
+        }
+
+        const pattern = /[0-9]{2}\/[0-9]{2}\/[0-9]{4}/;
+        function validateDOB() {
+            var dateParts = dob.value.split("/");
+            var dateObject = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
+            if (!pattern.test(dob.value) ||dateObject.toString() == "Invalid Date" || new Date < dateObject) {
+                if (!alerted) {
+                    alert("Please enter a valid date of birth");
+                    alerted = true;
+                    dob.focus();
+                } else {
+                    alerted = false;
+                }
+            } else {
+                alerted = false;
+            }
+        }
+
+        let featuresList = [];
+        function selectAll(source) {
+            for(var i=0, n=features.length;i<n;i++) {
+              features[i].checked = true;
+              featuresList.push(features[i].value);
+            }
+            updateSummary();
+        }
+        function deselectAll(source) {
+            for(var i=0, n=features.length;i<n;i++) {
+              features[i].checked = false;
+            }
+            featuresList = [];
+            updateSummary();
+        }
+        function selectFeature(source) {
+            var element = document.getElementsByName("select")[0];
+            if (element.value == "Select All") {
+                selectAll(source);
+                element.value = "Deselect all";
+            } else {
+                deselectAll(source);
+                element.value = "Select All"
+            }
+
+        }
+        function resetSelect() {
+            var element = document.getElementsByName("select")[0];
+            element.value = "Select All";
+            summary.innerHTML = "";
+        }
+
+        // summary
+        // give summary after filled in the infos
+        street.addEventListener('input', updateSummary);
+        suburb.addEventListener('input', updateSummary);
+        postcode.addEventListener('input', updateSummary);
+        dob.addEventListener('input', updateSummary);
+        building.addEventListener('input',updateSummary);
+
+        features.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                featuresList = Array.from(features)
+                    .filter(i => i.checked)
+                    .map(i => i.value);
+                updateSummary();
+            })
+        });
+
+        function getAge() {
+            if (!pattern.test(dob.value)) {
+                return NaN;
+            }
+            var today = new Date();
+            var dateParts = dob.value.split("/");
+            var birthDate = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var month = today.getMonth() - birthDate.getMonth();
+            if (month < 0 || (month == 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function getBuilding() {
+            var buildingV = building.value
+            if (buildingV == "Apartment") {
+                return "an apartment";
+            } else {
+                return "a house";
+            }
+        }
+
+        function getFeature() {
+            if (featuresList.length == 0) {
+                return "no features";
+            } else if (featuresList.length == 1) {
+                return featuresList[0];
+            } else if (featuresList.length == 2) {
+                return featuresList[0] + " and " + featuresList[1];
+            } else if (featuresList.length == 3) {
+                return featuresList[0] + ", " + featuresList[1] + " and " + featuresList[2];
+            } else if (featuresList.length == 4) {
+                return featuresList[0] + ", " + featuresList[1]+ ", " + featuresList[2] + " and " + featuresList[3];
+            }
+        }
+
+        function updateSummary() {
+            var streetV = street.value;
+            var suburbV = suburb.value;
+            var postcodeV = postcode.value;
+            var age = getAge();
+            var buildingV = getBuilding();
+            var featureV = getFeature();
+            var summaryText = "";
+
+            if (!streetV || !suburbV || !postcodeV || isNaN(age)) {
+                summaryText = "Fill in valid informations"
+            } else {
+                summaryText = "You are "+ age +" years old, and your address is "+ streetV +" St, "+ suburbV +", "+ postcodeV +", Australia. Your building is "+ buildingV +", and it has " + featureV +".";
+            }
+            summary.innerHTML = summaryText;
+        }
+    </script>
+</html>
