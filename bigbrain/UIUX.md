@@ -1,0 +1,8 @@
+- For 'http://localhost:3000/'. If token exist, navigate to 'dashboard', otherwise to sign in. 
+- In token is invaild, remove the token from localstorage and navigates to sign in.
+- After sign up, the page navigates to dashboard
+- Every navigative is a button which is clear and easy to access.
+- The paths have hierarchy
+- The texts on the page are simple and readable
+- There are navigations to redo. e.g. sign out, return to dashboard links
+- The alerts are clear and can correct the users on what have they done incorrectly

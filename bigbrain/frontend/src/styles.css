@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial;
+    text-align: center;
+    min-width: 400px;
+    min-height: 700px;
+}
+
+header {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+hr {
+    border: 1px solid #e4e4e4;
+}
+.box {
+    width: fit-content;
+    border: 2px solid #e4e4e4;
+    padding: 10px;
+    margin: auto;
+    text-align: left;
+    border-radius: 5px;
+}
