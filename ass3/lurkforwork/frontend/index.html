@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LurkForWork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css" />
+</head>
+<body>
+    <header>
+        <h1>LurkForWork</h1>
+    </header>
+    <main role="main">
+        <span id="register_section" class="hide">
+            Name: <input type="text" id="res_name"><br>
+            Email: <input type="text" id="res_email"><br>
+            Password: <input type="text" id="res_password"><br>
+            Comfirm password: <input type="text" id="comfirm_pass"><br>
+            <button id="register_button">Register</button><br>
+            <span>
+                Already on LurkForWork?
+                <span id="go_register" class="nav-item">
+                    Sign in
+                </span>
+            </span>
+        </span>
+
+        <span id="logged_out_section">
+            Email: <input type="text" id="loggin_email"><br>
+            Password: <input type="text" id="loggin_password"><br>
+            <button id="submit_button">Submit</button><br>
+            <span>
+                New to LurkForWork?
+                <span id="go_loggin" class="nav-item">
+                    Register Now!
+                </span>
+            </span>
+        </span>
+
+        <span id="logged_in_section" class="hide">
+            <p>
+                Welcome to LurkForWork.
+            </p>
+            <span id="logout" class="nav-item">Logout</span>
+            <button id="myProfile">Me</button>
+            <br><br>
+        </span>
+        
+    </main>
+    <footer id="footer">
+        <p>&copy; lurkforwork.com 2022</p>
+    </footer>
+    <script type="module" src="src/main.js"></script>
+
+    
+</body>
+</html>

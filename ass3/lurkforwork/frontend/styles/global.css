@@ -1,0 +1,60 @@
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial;
+    text-align: center;
+    min-width: 400px;
+    min-height: 700px;
+}
+
+footer {
+    bottom: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.nav-item {
+    color: rgba(255,230,0,255);
+}
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+#logout {
+    float: right;
+}
+
+#myProfile {
+    float: right;
+}
+
+.card {
+    border: 1px solid grey;
+    text-align: left;
+    font-size: small;
+}
+
+.popup {
+    display: none;
+}
+
+.liked {
+    background-color: rgba(255,230,0,255);
+}
+
+.profile {
+    text-align: left;
+}
+
+.user:hover {
+    opacity: .7;
+}
+
+#watchPopup {
+    font-size: small;
+}
